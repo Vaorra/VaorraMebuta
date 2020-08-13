@@ -2,21 +2,26 @@
   "name": "vaorramebuta",
   "version": "0.0.1",
   "description": "This is the official Vaorra Discord Bot called Mebuta.",
-  "main": "index.mjs",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && node dist/bot.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vaorra/VaorraMebuta.git"
   },
-  "author": "Koflin, Trexon",
-  "license": "MIT",
+  "author": "Trexon, Koflin",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Vaorra/VaorraMebuta/issues"
   },
   "homepage": "https://github.com/Vaorra/VaorraMebuta#readme",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "@types/node": "^13.9.0",
+    "discord.js": "^12.0.1",
+    "dotenv": "^8.2.0"
   }
 }
