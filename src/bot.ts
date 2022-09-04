@@ -1,5 +1,7 @@
 import {Client, MessageEmbed, TextChannel} from 'discord.js';
 import {config} from 'dotenv';
+import {readdir} from 'fs';
+import { IEventFunction } from './models/eventFunction';
 
 config();
 
@@ -15,6 +17,30 @@ const client = new Client({
     },
     partials: ['USER', 'MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER']
 });
+
+readdir('./events/', (error, files) => {
+
+    if (error) return console.error(error);
+
+    files.forEach(file => {
+        const eventFunction: IEventFunction = require(`./events/${file}`);
+        if (eventFunction.disabled) return;
+
+        const event =  eventFunction.name || file.split('.')[0];
+        const emitter = 
+        
+        try{
+            client[eventFunction.once = 'once' : 'on'](event, (...args) => eventFunction.run(...args));
+        }
+
+    });
+
+});
+
+
+
+
+
 
 client.once('ready', () => {
     console.log(`Loogged in as ${client.user.tag}.`);
